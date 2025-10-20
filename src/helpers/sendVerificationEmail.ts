@@ -19,15 +19,15 @@ export async function sendVerificationEmail(
             throw error;
         }
 
-        console.debug(`DEBUG: Verification email sent to ${email}`);
-        console.debug("DEBUG: data:",data);
+        console.debug(`DEBUG:: Verification email sent to ${email}`);
+        console.debug("DEBUG:: data:",data);
         return {
             success: false,
             message: `Sent verification email to ${email}`
         }
     }
     catch (error) {
-        console.error("ERROR: Failed to send verification email:\n", error);
+        console.error("ERROR:: Failed to send verification email:\n", error);
         return {
             success: false,
             message: "Failed to send verification email"
