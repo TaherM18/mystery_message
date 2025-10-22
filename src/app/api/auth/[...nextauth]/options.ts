@@ -25,7 +25,7 @@ export const authOptions: NextAuthConfig = {
                     });
                     
                     if (!user) {
-                        throw new Error("No user found for given username or email");
+                        throw new Error("Invalid username or email");
                     }
                     if (!user.isVerified) {
                         throw new Error("Please verify your account");
@@ -45,7 +45,7 @@ export const authOptions: NextAuthConfig = {
                     };
                 }
                 catch (error) {
-                    console.error("Authorize error:", error);
+                    console.error("AUTH ERROR:", error);
                     return null;
                 }
             },

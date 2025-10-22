@@ -68,8 +68,10 @@ export default function Page() {
             const response = await axios.post<ApiResponse>("/api/sign-up", data);
             // show success toast
             toast.success(response.data.message);
-            // redirect
-            router.replace(`/verify/${username}`);
+            // redirect to verify after 1 second
+            setTimeout(() => {
+                router.replace(`/verify/${username}`);
+            }, 1000);
             
         } catch (error) {
             console.error("ERROR in sign-up ::", error);
