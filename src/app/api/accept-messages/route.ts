@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const session = await auth();
     const user = session?.user as User;
 
-    if (!session || user)  {
+    if (!session || !user)  {
         return Response.json(
             {
                 success: false,
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
             throw new Error();
         }
     } catch (error) {
-        console.log("ERROR: Request does not contain the required parameters");
+        console.log("ERROR: Request does not contain the required parameters", error);
         return Response.json(
                 {
                     success: false,
@@ -91,13 +91,13 @@ export async function POST(request: Request) {
 
 
 // to get user's accept-message status
-export async function GET(request: Request) {
+export async function GET() {
     await connectDB();
 
     const session = await auth();
     const user: User = session?.user as User;
 
-    if (!session || user)  {
+    if (!session || !user)  {
         return Response.json(
             {
                 success: false,

@@ -157,7 +157,11 @@ export default function Page() {
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" disabled={isSubmitting}>
+                        <Button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full"
+                        >
                             {isSubmitting ? <><Spinner/> Loading</> : "Sign Up"}
                         </Button>
                     </form>

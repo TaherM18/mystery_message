@@ -110,7 +110,7 @@ export default function Page() {
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" disabled={isSubmitting} className="w-100">
+                        <Button type="submit" disabled={isSubmitting} className="w-full">
                             { isSubmitting 
                                 ? <span className="flex items-center"><Spinner className="mr-1"/>Loading</span> 
                                 : "Login"
@@ -118,6 +118,14 @@ export default function Page() {
                         </Button>
                     </form>
                 </Form>
+                <div className="text-center mt-4">
+                    <p>
+                        Not a member?{" "}
+                        <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
+                            Sign Up
+                        </Link>
+                    </p>
+                </div>
             </div>
         </div>
     );
