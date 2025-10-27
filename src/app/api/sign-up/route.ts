@@ -2,7 +2,7 @@ import connectDB from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 import bcrypt from "bcryptjs";
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
-import { signUpSchema } from "@/schemas/signUpSchema";
+import { signUpSchema } from "@/schemas/SignUpSchema";
 
 interface RequiredRequest {
     username: string,

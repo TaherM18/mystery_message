@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { signInSchema } from "@/schemas/signInSchema";
+import { SignInSchema } from "@/schemas/SignInSchema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -22,15 +22,15 @@ export default function Page() {
     // router
     const router = useRouter();
     // zod implementation
-    const form = useForm<z.infer<typeof signInSchema>>({
-        resolver: zodResolver(signInSchema),
+    const form = useForm<z.infer<typeof SignInSchema>>({
+        resolver: zodResolver(SignInSchema),
         defaultValues: {
             identifier: "",
             password: ""
         }
     })
 
-    const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
         console.debug("DEBUG:: sign-in data:", {
             identifier: data.identifier,
             password: "****"

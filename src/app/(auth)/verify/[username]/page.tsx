@@ -1,6 +1,6 @@
 "use client";
 
-import { verificationSchema } from "@/schemas/verificationSchema";
+import { VerificationSchema } from "@/schemas/VerificationSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
@@ -27,12 +27,12 @@ export default function Page() {
     // get username from url parameter
     const { username } = useParams<{ username: string }>();
     // form hook with zod implementation
-    const form = useForm<z.infer<typeof verificationSchema>>({
-        resolver: zodResolver(verificationSchema),
+    const form = useForm<z.infer<typeof VerificationSchema>>({
+        resolver: zodResolver(VerificationSchema),
     });
 
     // submit handler function
-    async function onSubmit(data: z.infer<typeof verificationSchema>) {
+    async function onSubmit(data: z.infer<typeof VerificationSchema>) {
         try {
             // make network request
             const response = await axios.post("/api/verify-code", {

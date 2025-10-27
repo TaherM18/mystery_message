@@ -3,6 +3,7 @@ import connectDB from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 import { User } from "next-auth";
 
+// #region POST
 // to change user's accept-message status
 export async function POST(request: Request) {
     await connectDB();
@@ -88,8 +89,9 @@ export async function POST(request: Request) {
         );
     }
 }
+// #endregion
 
-
+// #region GET
 // to get user's accept-message status
 export async function GET() {
     await connectDB();
@@ -149,3 +151,4 @@ export async function GET() {
         );
     }
 }
+// #endregion

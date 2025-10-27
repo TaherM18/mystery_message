@@ -4,13 +4,13 @@ import { User } from "next-auth";
 import connectDB from "@/lib/dbConnect";
 import mongoose from "mongoose";
 
-export async function GET(request: Request) {
+export async function GET() {
     await connectDB();
 
     const session = await auth();
     const user = session?.user as User;
 
-    if (!session || user)  {
+    if (!session || !user)  {
         return Response.json(
             {
                 success: false,
@@ -56,7 +56,7 @@ export async function GET(request: Request) {
             {
                 success: true,
                 message: "Got user messages",
-                data: user[0].messages
+                messages: user[0].messages
             },
             {
                 status: 200
